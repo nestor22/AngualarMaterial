@@ -1,5 +1,8 @@
 <div class="body">
-    <div class="login">
+
+    <mat-spinner *ngIf="loading" class="spinner" diameter = "50"></mat-spinner>
+
+    <div *ngIf="!loading" class="login">
         <img src="./assets/img/programmer.png" alt="user img">
         
         <h1>Login</h1>

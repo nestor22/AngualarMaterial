@@ -10,7 +10,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    
+    MatIconModule,
   ], 
   exports:[
     MatSliderModule,
@@ -35,7 +35,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

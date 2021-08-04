@@ -12,6 +12,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
+    MatTableModule,
   ], 
   exports:[
     MatSliderModule,
@@ -39,7 +42,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }

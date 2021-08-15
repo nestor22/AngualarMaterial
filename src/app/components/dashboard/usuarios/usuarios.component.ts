@@ -3,28 +3,20 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { usuario } from 'src/app/interfaces/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css'],
 })
-export class UsuariosComponent {
+export class UsuariosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  ELEMENT_DATA: usuario[] = [
-    { usuario: 'ngonzalez', nombre: 'Nestor', apellido: 'Gonzaelz', sexo: 'H' },
-    { usuario: 'agonzalez', nombre: 'Astrid', apellido: 'Gonzaelz', sexo: 'H' },
-    { usuario: 'lnolasco', nombre: 'lilianan', apellido: 'Nolasco', sexo: 'H' },
-    { usuario: 'dperez', nombre: 'Diego', apellido: 'Perez', sexo: 'H' },
-    { usuario: 'aroque', nombre: 'andrea', apellido: 'Roque', sexo: 'H' },
-    { usuario: 'eduque', nombre: 'edgar', apellido: 'duque', sexo: 'H' },
-    { usuario: 'jdoe', nombre: 'John', apellido: 'Doe', sexo: 'H' },
-    { usuario: 'ddiaz', nombre: 'dorian', apellido: 'diaz', sexo: 'H' },
-    { usuario: 'mgevara', nombre: 'Melisa', apellido: 'guevara', sexo: 'H' },
-    { usuario: 'btest', nombre: 'bernard', apellido: 'test', sexo: 'H' },
-  ];
+  listUsuarios: usuario[] = [];
+  dataSource!: MatTableDataSource<any>;
+
   displayedColumns: string[] = [
     'usuario',
     'nombre',
@@ -32,10 +24,18 @@ export class UsuariosComponent {
     'sexo',
     'acciones',
   ];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  constructor() {
+  constructor(private _usuarioService: UsuarioService) {
     //This is on porpost
+  }
+
+  ngOnInit() {
+    this.cargarUsuarios();
+  }
+
+  cargarUsuarios() {
+    this.listUsuarios = this._usuarioService.getUusuario();
+    this.dataSource = new MatTableDataSource(this.listUsuarios);
   }
 
   ngAfterViewInit(): void {
